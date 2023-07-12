@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Health Report Form</title>
+    <link rel="stylesheet" href="C:/Users/HP/Documents/GitHub/practicewebdev/html/project7/style.css">
+    
+</head>
+<b>
+    <div class="container">
+        
+    <h1 class="heading">Health Report Form</h1>
+
+    <div class="wrapper">
+    <form id="healthForm" enctype="multipart/form-data" action="data.php" method="post" >
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label for="weight">Weight:</label>
+        <input type="number" id="weight" name="weight" required>
+
+        <label for="email">Email ID:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="healthReport">Upload Health Report (PDF):</label>
+        <input type="file" id="healthReport" name="healthReport" required accept=".pdf">
+
+        <input type="submit" id="submit" value="Submit">
+        <button  onclick="fetchHealthReport()">Download Health Report</button>
+    </form>
+</div>
+</div>
+
+
+
+
+
+    <script>
+        document.getElementById("healthForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            // Get form values
+            var name = document.getElementById("name").value;
+            var age = document.getElementById("age").value;
+            var weight = document.getElementById("weight").value;
+            var email = document.getElementById("email").value;
+            var healthReport = document.getElementById("healthReport").files[0];
+
+            // Create FormData object
+            var formData = new FormData();
+            formData.append("name", name);
+            formData.append("age", age);
+            formData.append("weight", weight);
+            formData.append("email", email);
+            formData.append("healthReport", healthReport);
+
+            // Send form data to the server using AJAX
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "data.php", true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    alert("Form submitted successfully!");
+                    // You can add more code here to handle the response
+                }
+            };
+            xhr.send(formData);
+        });
+    </script>
+
+<script src="fetch.php"></script>
+<script>
+    
+    function fetchHealthReport() {
+    // Get the email ID from the form
+    var email = document.getElementById("email").value;
+
+    // Create an XMLHttpRequest object
+    var xhr = new XMLHttpRequest();
+
+    // Set the request method and the URL
+    xhr.open("POST", "fetch.php", true);
+
+    // Set the request headers
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    // Create a JSON object to send to the server
+    var jsonObject = {
+        "email": email
+    };
+
+    // Send the JSON object to the server
+    xhr.send(JSON.stringify(jsonObject));
+
+    // Handle the response from the server
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            // The PDF file has been downloaded successfully
+            var file = xhr.response;
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+
+            // When the PDF file has been read, download it to the browser
+            reader.onload = function() {
+                var url = reader.result;
+                window.open(url);
+            };
+        } else {
+            // An error occurred
+            alert("An error occurred while downloading the PDF file.");
+        }
+    };
+}
+
+</script>
+
+
+</body>
+</html>

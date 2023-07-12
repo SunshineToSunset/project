@@ -1,0 +1,176 @@
+
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Times New Roman', Times, serif;
+      }
+      
+      
+      
+      body{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        background-color: cadetblue;
+        background: url('C:/Users/HP/Documents/GitHub/practicewebdev/html/project7/f.jpg') no-repeat;
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+        
+      } 
+      .wrapper{
+        width: 500px;
+        background-color: lightpink;
+        color: floralwhite;
+        border-radius: 10px;
+        padding: 20px 30px;
+        background: transparent;
+        border: 2px solid rgba(255,255,255,.2);
+        backdrop-filter: blur(9px);
+        box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+       
+       
+      }
+       
+       
+       label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, textarea {
+            margin-bottom: 10px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: first baseline;
+            height: 100vh;
+          }
+        .heading{
+            color: wheat;
+            font-size: 36px;
+            text-align: right;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+       
+             }
+
+
+             label {
+                display: block;
+                margin-bottom: 10px;
+                font-weight: bold;
+                margin-left: 3px;
+              }
+              
+              input[type="text"],
+              input[type="number"],
+              input[type="email"],
+              input[type="file"] {
+                display: block;
+                width: 410px;
+                padding: 8px;
+                margin-bottom: 20px;
+                border: 2px solid rgba(255,255,255,.2);
+                border-radius: 4px;
+                background: transparent;
+              }
+              
+              input[type="file"] {
+                padding: 8px;
+                width: 410px;
+                
+
+              }
+
+              input[type="file"]::file-selector-button {
+                /* Apply your desired CSS properties and values */
+                background-color: #fff;
+                color: #333;
+                font-size: 16px;
+                font-weight: 600;
+                padding: 8px;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+                border-radius: 4px;
+              }
+
+              input[type="file"]::file-selector-button:hover{
+                background-color: burlywood;
+              }
+              input[type="file"]::file-selector-button:active{
+                transform:scale(0.01) ;
+              }
+
+
+             #submit{
+                width: 107px;
+                height: 30px;
+                margin-left: 10px;
+                background: #fff;
+                outline: none;
+                border: none;
+                box-shadow: 0 0 10px rgba(0,0,0,.1);
+                cursor: pointer;
+                font-size: 16px;
+                color: #333;
+                font-weight: 600;
+                border-radius: 4px;
+                
+             }
+             
+             #name {
+                margin-left: 3px;
+              }
+              
+              #age {
+                margin-left: 3px;
+              }
+              
+              #weight {
+                margin-left: 3px;
+              }
+              
+              #email {
+                margin-left: 3px;
+              }
+              #healthForm{
+                margin-bottom: 0px;
+                
+              }
+              #submit:active{
+                transform:scale(0.01);
+              }
+              #submit:hover{
+                background-color: burlywood;
+              }
+
+              button {
+                background-color:#fff;
+                color: white;
+                width: 155px;
+                height: 45px;
+                outline: none;
+                border: none;
+                box-shadow: 0 0 10px rgba(0,0,0,.1);
+                cursor: pointer;
+                font-size: 16px;
+                color: #333;
+                font-weight: 600;
+                border-radius: 4px;
+                margin-left: 10px;
+            }
+            
+            button:hover {
+                background-color: burlywood;
+            }
+            button:active{
+                transform:scale(0.01);
+              
+            }
